@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Abhishek Kumar Singh">
-    <title>AKS Webpage</title>
+    <title>AKS Blog</title>
 
 
 
@@ -54,7 +54,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{% static "Abhishek.pdf" %}" target="_blank">Resume <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item">
@@ -73,7 +73,7 @@
       <img src="https://img.icons8.com/fluent/30/000000/twitter.png"/>
       </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
       <a class="nav-link" href="{% url 'allblogs' %}" >Blog</a>
       </li>
     </ul>
@@ -82,38 +82,26 @@
 </header>
 
 <main role="main">
+<div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Abhishek Kumar Singh</h1>
-      <img src="{% static "1 (2).jpg" %}" class="rounded-circle" />
-      <p class="lead text-muted">Thanks for visiting. This page will give a glimpse of my professional work.</p>
-      <p>
-        <a href= "mailto: infy.abhishek@gmail.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-    </div>
-  </section>
+    <br>
 
-  <div class="album py-5 bg-light">
     <div class="container">
 
       <div class="row" >
-      {%for job in jobs.all%}
-        <div class="col-md-4" >
-          <div class="card mb-4 shadow-sm" >
-            <img   class="img-fluid" src={{job.image.url}} />
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
+        <div class="blog-post" >
+          <h2 class="blog-post-title">{{blogdetails.title}}</h2>
+            <p class="blog-post-meta">{{blogdetails.pub_date}}</p>
+            <img   class="img-fluid" src={{blogdetails.image.url}} height="300" width="300"/>
+            <p class="card-text">{{blogdetails.body}}</p>
+
+            <hr>
+          <br>
 
         </div>
-        {%endfor%}
       </div>
-
     </div>
-  </div>
-
+</div>
 </main>
 
 <footer class="text-muted">
